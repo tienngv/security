@@ -21,7 +21,7 @@ public class TestController {
             Map<String, Object> map = new HashMap<>();
             map.put("username", userDto.getUsername());
             map.put("mes", "Đã tồn tại user này");
-            throw new GpayException("400", "U I A U I IA", map);
+            throw new GpayException("400", "UIAUIA UiiiA", map);
 
         } else if ("ADMIN".equals(userDto.getUsername())) {
             throw new NullPointerException();
