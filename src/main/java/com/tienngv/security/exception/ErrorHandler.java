@@ -1,5 +1,6 @@
 package com.tienngv.security.exception;
 
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -13,15 +14,26 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @ControllerAdvice
 public class ErrorHandler extends ResponseEntityExceptionHandler {
+
+    private String getMessage(String key, Object... args) {
+        try {
+            return Objects.requireNonNull(getMessageSource())
+                    .getMessage(key, args, LocaleContextHolder.getLocale());
+        } catch (Exception e) {
+            return "Something is wrong";
+        }
+    }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
                                                                   HttpStatusCode status,
                                                                   WebRequest request) {
-        var message = "Dữ liệu đầu vào không hợp lệ !";
+        var message = getMessage("MethodArgumentNotValidException.message");
         var error = new LinkedHashMap<String, String>();
         for (var err : ex.getFieldErrors()) {
             var key = err.getField();

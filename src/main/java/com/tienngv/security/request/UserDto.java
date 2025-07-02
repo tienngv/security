@@ -8,9 +8,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDto {
-    @NotBlank(message = "Username không được để trống")
+    @NotBlank(message = "{user.name.NotBlank.message}")
     private String username;
     @Size(min = 6, message = "Mật khẩu phải có ít nhất 6 ký tự")
     @NotBlank(message = "Password không được để trống")
     private String password;
+
+    private String confirmPassword;
+
+    private String email;
+    private Address address;
 }

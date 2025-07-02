@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,10 +23,12 @@ public class TestController {
             map.put("username", userDto.getUsername());
             map.put("mes", "Đã tồn tại user này");
             throw new GpayException("400", "UIAUIA UiiiA", map);
-
-        } else if ("ADMIN".equals(userDto.getUsername())) {
-            throw new NullPointerException();
         }
+        if (Objects.isNull(userDto.getAddress())) {
+            throw new GpayException("JQK123","Address can't be null");
+        }
+        System.out.println(userDto.getAddress().getCity());
+
         return userDto;
     }
 }
