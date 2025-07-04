@@ -6,17 +6,6 @@ spring:
     username: postgres
     password: 123@
     driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update   # hoặc create / validate tùy nhu cầu
-    show-sql: true        # Hiện SQL trên console
-    properties:
-      hibernate:
-        enable_lazy_load_no_trans: true
-        format_sql: true
-        proc:
-          param_null_passing: true
-      show-sql: true
   security:
     oauth2:
       client:
@@ -34,4 +23,17 @@ spring:
             authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
             token-uri: https://oauth2.googleapis.com/token
             user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+#show sql
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
 

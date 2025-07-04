@@ -6,8 +6,12 @@ import jakarta.validation.Valid;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -16,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping()
+    @PostMapping("/create")
     public UserDto addUser(@RequestBody @Valid UserDto userDto) {
         return userService.save(userDto);
     }
@@ -28,9 +32,11 @@ public class UserController {
         return userService.update(userDto, id);
     }
 
-    @GetMapping("/{user-name}")
-    public UserDto getUser(@PathVariable(value = "user-name")
-                           @NotNull(message = "Id must not empty") String userName) {
-        return userService.findByUsername(userName);
+    @GetMapping("/abc")
+    public ResponseEntity<?> getUser() {
+        Map<String,String> rs = new HashMap<>();
+        rs.put("status", "OKI !!");
+        rs.put("mess","Hello World");
+        return ResponseEntity.ok(rs);
     }
 }
