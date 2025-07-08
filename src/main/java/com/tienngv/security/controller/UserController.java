@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -33,9 +34,17 @@ public class UserController {
     }
 
     @GetMapping("/abc")
-    public ResponseEntity<?> getUser() {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<?> abc() {
         Map<String,String> rs = new HashMap<>();
-        rs.put("status", "OKI !!");
+        rs.put("mess","Hello World");
+        return ResponseEntity.ok(rs);
+    }
+
+    @GetMapping("/abcd")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<?> abcdE() {
+        Map<String,String> rs = new HashMap<>();
         rs.put("mess","Hello World");
         return ResponseEntity.ok(rs);
     }

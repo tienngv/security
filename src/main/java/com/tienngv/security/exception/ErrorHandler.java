@@ -109,7 +109,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler implements Auth
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         Map<String, Object> error = new HashMap<>();
-        error.put("status", HttpStatus.UNAUTHORIZED.value());
+//a        error.put("status", HttpStatus.UNAUTHORIZED.value());
         error.put("message", authException.getMessage());
 
         response.setContentType("application/json");

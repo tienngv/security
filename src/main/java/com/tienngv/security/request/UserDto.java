@@ -29,10 +29,10 @@ public class UserDto {
     @NotBlank(message = "Password không được để trống")
     private String password;
 
-    @NotBlank(message = "Confirm Password không được để trống")
-    private String confirmPassword;
+//    @NotBlank(message = "Confirm Password không được để trống")
+//    private String confirmPassword;
 
-    @NotBlank(message = "Confirm Password không được để trống")
+    @NotBlank(message = "Email không được để trống")
     @Length(min = 6,max = 50, message = "Email phải nằm trong khoảng 6 -> 50 kí tự")
     @Email(message = "Không đúng định dạng email")
     private String email;
