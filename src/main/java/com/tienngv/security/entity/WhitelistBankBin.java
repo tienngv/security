@@ -3,8 +3,8 @@ package com.tienngv.security.entity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-import com.tienngv.security.utils.SoS.BankMasterStatus;
-import com.tienngv.security.utils.SoS.CreditCardType;
+import com.tienngv.security.utils.BankMasterStatus;
+import com.tienngv.security.utils.CreditCardType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class WhitelistBankBin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "bank_bin")
+    @Column(name = "bank_bin", nullable = false, unique = true)
     private String bankBin;
     @Column(name = "bank_name")
     private String bankName;
@@ -44,7 +44,6 @@ public class WhitelistBankBin {
     private Timestamp updatedOn;
     @Column(name = "country_code")
     private String countryCode;
-
 
 
 }

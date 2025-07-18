@@ -5,8 +5,8 @@
 //import com.tienngv.security.entity.WhitelistBankBin;
 //import com.tienngv.security.repository.WhitelistBankBinRepository;
 //import com.tienngv.security.request.WhitelistBankBinExcelDTO;
-//import com.tienngv.security.utils.SoS.BankMasterStatus;
-//import com.tienngv.security.utils.SoS.CreditCardType;
+//import com.tienngv.security.utils.BankMasterStatus;
+//import com.tienngv.security.utils.CreditCardType;
 //import lombok.extern.slf4j.Slf4j;
 //
 //import java.sql.Timestamp;

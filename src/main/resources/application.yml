@@ -1,11 +1,20 @@
 server:
   port: 8080
 spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  #  application:
+  #    name: Authen-Author
+  #    title: autho-authen
+  #  kafka:
+  #    bootstrap-servers: gpay-kafka-0.gpay-kafka-brokers.platform-strimzi-kafka-operator.svc.cluster.local:9092
+  #    producer:
+  #      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  rabbitmq:
+    host: 10.192.58.116
+    port: 5672
+    username: bankgateway-dev
+    password: YQLsuWYAV0QPo9ympBtJ
+    virtual-host: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/viettien?currentSchema=public
     username: postgres
@@ -36,10 +45,10 @@ spring:
       hibernate:
         format_sql: true
 #show sql
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.orm.jdbc.bind: TRACE
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.orm.jdbc.bind: TRACE
 
 
 

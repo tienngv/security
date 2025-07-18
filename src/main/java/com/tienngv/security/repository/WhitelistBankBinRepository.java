@@ -1,7 +1,7 @@
 package com.tienngv.security.repository;
 
 import com.tienngv.security.entity.WhitelistBankBin;
-import com.tienngv.security.utils.SoS.BankMasterStatus;
+import com.tienngv.security.utils.BankMasterStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

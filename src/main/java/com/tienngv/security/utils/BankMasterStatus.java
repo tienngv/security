@@ -1,4 +1,4 @@
-package com.tienngv.security.utils.SoS;
+package com.tienngv.security.utils;
 
 import lombok.Getter;
 

@@ -31,6 +31,7 @@ public class SecurityConfiguration {
                 )
                 .authorizeHttpRequests(customizer -> customizer
                         .requestMatchers(HttpMethod.POST, "/user/create").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/ReturnUrl","/vnpay-return").permitAll()
                         .anyRequest()
                         .authenticated()
                 );
