@@ -23,18 +23,19 @@ public class SecurityConfiguration {
                 .cors(customizer -> {
                 })
                 .httpBasic(customizer -> {
-                })
-                .sessionManagement(customizer -> customizer
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .exceptionHandling(exception -> exception
-                        .authenticationEntryPoint(errorHandler) // <-- Sử dụng entry point custom
-                )
-                .authorizeHttpRequests(customizer -> customizer
-                        .requestMatchers(HttpMethod.POST, "/user/create").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/ReturnUrl","/vnpay-return").permitAll()
-                        .anyRequest()
-                        .authenticated()
-                );
+                });
+//                .sessionManagement(customizer -> customizer
+//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .exceptionHandling(exception -> exception
+//                        .authenticationEntryPoint(errorHandler)
+//                )
+//                .authorizeHttpRequests(customizer -> customizer
+//                        .requestMatchers(HttpMethod.POST, "/user/create").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/ReturnUrl","/vnpay-return").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/swagger-ui/index.html#/").permitAll()
+//                        .anyRequest()
+//                        .authenticated()
+//                );
         return http.build();
     }
 

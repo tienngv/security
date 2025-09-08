@@ -8,7 +8,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
@@ -16,6 +18,8 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class UserDto {
 
@@ -42,8 +46,14 @@ public class UserDto {
     @NotBlank(message = "Role không được để trống")
     private String role;
 
-
+    private Address address;
 //    private Long id;
 //    private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
+
+    public UserDto(String fullName,String username,Address address){
+        this.fullName = fullName;
+        this.username = username;
+        this.address = address;
+    }
 }
